@@ -1,47 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Spring module" default="build" basedir=".">
-   
-    <property file="./build.properties" />
 
     <path id="project.classpath">
         <pathelement path="${play.path}/framework/classes"/>
         <fileset dir="${play.path}/framework">
-                <include name="play-1.2.4.jar"/>
+            <include name="*.jar"/>
         </fileset>
         <fileset dir="${play.path}/framework/lib">
-                <include name="*.jar"/>
+            <include name="*.jar"/>
         </fileset>
-        <fileset dir="lib">
+        <fileset dir="./lib">
             <include name="*.jar"/>
         </fileset>
     </path>
 
-    <target name="build" depends="compile">
-
+    <target name="build">
+        <mkdir dir="tmp/classes" />
+        <javac srcdir="src" destdir="tmp/classes" source="1.8" target="1.8" bootclasspath="/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar" debug="true" debuglevel="lines,vars,source">
+            <classpath refid="project.classpath" />
+        </javac>
         <copy todir="tmp/classes">
             <fileset dir="src">
                 <include name="**/*.properties"/>
                 <include name="**/*.xml"/>
                 <include name="**/play.plugins"/>
-                <include name="**/play.static"/>
             </fileset>
         </copy>
         <jar destfile="lib/play-spring.jar" basedir="tmp/classes">
             <manifest>
                 <section name="Play">
-                    <attribute name="Specification-Title" value="Spring module"/>
+                    <attribute name="Specification-Title" value="Rythm module"/>
                 </section>
             </manifest>
         </jar>
         <delete dir="tmp" />
-    </target>
-
-    <target name="compile">
-        <mkdir dir="tmp/classes" />
-        <javac srcdir="src" destdir="tmp/classes" target="1.6" debug="true">
-            <classpath refid="project.classpath" />
-        </javac>
     </target>
 
 </project>

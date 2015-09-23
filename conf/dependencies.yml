@@ -1,18 +1,18 @@
-self: play -> spring 1.0.3
+self: play -> spring 1.0.4
 
 require:
     - play
-    - org.springframework -> spring-core 3.1.1.RELEASE:
+    - org.springframework -> spring-core 4.2.1.RELEASE:
         exclude:
             - commons-collections -> commons-collections
             - log4j -> log4j
             - org.aspectj -> aspectjweaver
-    - org.springframework -> spring-beans 3.1.1.RELEASE:
+    - org.springframework -> spring-beans 4.2.1.RELEASE:
         exclude:
             - javax.el -> el-api
             - javax.inject -> javax.inject
             - cglib -> cglib-nodep
-    - org.springframework -> spring-context 3.1.1.RELEASE:
+    - org.springframework -> spring-context 4.2.1.RELEASE:
         exclude:
             - backport-util-concurrent -> backport-util-concurrent
             - javax.annotation -> jsr250-api
