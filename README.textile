@@ -92,4 +92,5 @@ If you want to configure Spring profile(s), add the following to the conf/applic
 
 bc. play.spring.profiles=DEV 
 
+Updated to new mongo version for [Tits-Guru.com](https://tits-guru.com)
 
